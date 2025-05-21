@@ -1,0 +1,1191 @@
+{
+    "$Version": "4.01",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Measures.V1",
+                    "$Alias": "Measures"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Authorization.V1",
+                    "$Alias": "Authorization"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Capabilities.V1",
+                    "$Alias": "Capabilities"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Repeatability.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Repeatability.V1",
+                    "$Alias": "Repeatability"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Temporal.V1",
+                    "$Alias": "Temporal"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Aggregation.V1",
+                    "$Alias": "Aggregation"
+                }
+            ]
+        }
+    },
+    "WireskSolution": {
+        "$Alias": "WireskSolution",
+        "Tag": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A tag (connection role) that is part of the solution",
+            "name": {
+                "$Nullable": false,
+                "@Core.Description": "A human-readable name for the tag"
+
+            },
+            "description": {
+                "$Nullable": true,
+                "@Core.Description": "A human-readable description for the tag"
+
+            },
+            "technical_name": {
+                "$Nullable": false,
+                "@Core.Description": "An internal unique name that is referenceable by this solution or others"
+
+            },
+            "platformKey": {
+                "$Nullable": false,
+                "@Core.Description": "The unique key of the platform used by this connection"
+
+            }
+        },
+        "SolutionTags": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.Tag",
+            "$Collection":true,
+            "@Core.Description": "A list of new tags introduced by this solution"
+        },
+        "ReferencedTag": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A tag (connection role) that is used by this solution but inherited from another solution.",
+            "technical_name": {
+                "$Nullable": false,
+                "@Core.Description": "The technical name of the referenced tag"
+
+            }
+        },
+        "SolutionReferencedTags": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.ReferencedTag",
+            "$Collection":true
+        },
+        "ResourceRole": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A Resource Role that is part of the solution",
+            "name": {
+                "$Nullable": false,
+                "@Core.Description": "A human-readable name for the Resource Role"
+
+            },
+            "description": {
+                "$Nullable": true,
+                "@Core.Description": "A human-readable description for the Resource Role"
+
+            },
+            "technical_name": {
+                "$Nullable": false,
+                "@Core.Description": "An internal unique name that is referenceable by this solution or others"
+
+            }
+        },
+        "SolutionResourceRoles": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.ResourceRole",
+            "$Collection":true,
+            "@Core.Description": "A list of new resource roles introduced by this solution"
+        },
+        "ReferencedResourceRole": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A resource role that is used by this solution but inherited from another solution.",
+            "technical_name": {
+                "$Nullable": false,
+                "@Core.Description": "The technical name of the referenced resource role."
+
+            }
+        },
+        "SolutionReferencedResourceRoles": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.ReferencedResourceRole",
+            "$Collection":true
+        },
+        "EventDefinition": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A Event that is part of the solution",
+            "name": {
+                "$Nullable": false,
+                "@Core.Description": "A human-readable name for the Event"
+
+            },
+            "description": {
+                "$Nullable": true,
+                "@Core.Description": "A human-readable description for the Event"
+
+            },
+            "technical_name": {
+                "$Nullable": false,
+                "@Core.Description": "An internal unique name that is referenceable by this solution or others"
+
+            }
+        },
+        "SolutionEventDefinitions": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.EventDefinition",
+            "$Collection":true,
+            "@Core.Description": "A list of new Events introduced by this solution"
+        },
+        "ReferencedEventDefinition": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A Event that is used by this solution but inherited from another solution.",
+            "technical_name": {
+                "$Nullable": false,
+                "@Core.Description": "The technical name of the referenced Event."
+
+            }
+        },
+        "SolutionReferencedEventDefinitions": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.ReferencedEventDefinition",
+            "$Collection":true
+        },
+        "ApiKeyDefinition": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A Api Key that is part of the solution",
+            "name": {
+                "$Nullable": false,
+                "@Core.Description": "A human-readable name for the Api Key"
+
+            },
+            "description": {
+                "$Nullable": true,
+                "@Core.Description": "A human-readable description for the Api Key"
+
+            },
+            "technical_name": {
+                "$Nullable": false,
+                "@Core.Description": "An internal unique name that is referenceable by this solution or others"
+
+            }
+        },
+        "SolutionApiKeyDefinitions": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.ApiKeyDefinition",
+            "$Collection":true,
+            "@Core.Description": "A list of new Api Keys introduced by this solution"
+        },
+        "ReferencedApiKeyDefinition": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A Api Key that is used by this solution but inherited from another solution.",
+            "technical_name": {
+                "$Nullable": false,
+                "@Core.Description": "The technical name of the referenced Api Key."
+
+            }   
+        },
+        "SolutionReferencedApiKeyDefinitions": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.ReferencedApiKeyDefinition",
+            "$Collection":true
+        },
+        "VariableDefinition": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A Variable that is part of the solution",
+            "name": {
+                "$Nullable": false,
+                "@Core.Description": "A human-readable name for the Variable"
+
+            },
+            "description": {
+                "$Nullable": true,
+                "@Core.Description": "A human-readable description for the Variable"
+
+            },
+            "type": {
+                "$Nullable": false,
+                "@Core.Description": "The type of this variable"
+
+            },
+            "technical_name": {
+                "$Nullable": false,
+                "@Core.Description": "An internal unique name that is referenceable by this solution or others"
+
+            }
+        },
+        "SolutionVariableDefinitions": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.VariableDefinition",
+            "$Collection":true,
+            "@Core.Description": "A list of new Variables introduced by this solution"
+        },
+        "ReferencedVariableDefinition": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A Variable that is used by this solution but inherited from another solution.",
+            "technical_name": {
+                "$Nullable": false,
+                "@Core.Description": "The technical name of the referenced Variable."
+
+            }
+        },
+        "SolutionReferencedVariableDefinitions": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.ReferencedVariableDefinition",
+            "$Collection":true
+        },
+        "BotDefinition": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A Bot Definition that is part of the solution",
+            "name": {
+                "$Nullable": false,
+                "@Core.Description": "A human-readable name for the Bot Definition"
+
+            },
+            "description": {
+                "$Nullable": true,
+                "@Core.Description": "A human-readable description for the Bot Definition"
+
+            },
+            "technical_name": {
+                "$Nullable": false,
+                "@Core.Description": "An internal unique name that is referenceable by this solution or others"
+
+            },
+            "tag": {
+                "$Nullable": false,
+                "@Core.Description": "The tag used by this bot."
+
+            }
+        },
+        "SolutionBotDefinitions": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.BotDefinition",
+            "$Collection":true,
+            "@Core.Description": "A list of new Bot Definitions introduced by this solution"
+        },
+        "ReferencedBotDefinition": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A Bot Definition that is used by this solution but inherited from another solution.",
+            "technical_name": {
+                "$Nullable": false,
+                "@Core.Description": "The technical name of the referenced Bot Definition."
+
+            }
+        },
+        "SolutionReferencedBotDefinitions": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.ReferencedBotDefinition",
+            "$Collection":true
+        },
+        "SolutionFlows": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.Flow",
+            "$Collection":true,
+            "@Core.Description": "A list of new flows introduced by this solution"
+        },
+        "SolutionDependency": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A solution that must be installed for this solution to work.",
+            "version": {
+                "$Nullable": false,
+                "@Core.Description": "Valid versions of the solution dependency according to SemVer standard."
+
+            },
+            "solution_name": {
+                "$Nullable": false,
+                "@Core.Description": "The unique name of the dependant solution."
+
+            }
+        },
+        "SolutionDependencies": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.SolutionDependency",
+            "$Collection":true,
+            "@Core.Description": "A list of solutions required by this solution"
+        },
+        "OpenComplexType": {
+            "$Kind": "ComplexType",
+            "$OpenType": true
+        },
+        "Flow": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A Flow that is part of the solution",
+            "name": {
+                "$Nullable": false,
+                "@Core.Description": "A human-readable name for the Flow"
+
+            },
+            "technical_name": {
+                "$Nullable": false,
+                "@Core.Description": "A unique, technical name for the flow"
+
+            },
+            "example_input": {
+                "$Nullable": true,
+                "$Type":"WireskSolution.OpenComplexType"
+            },
+            "input_schema": {
+                "$Nullable": true,
+                "$Type":"WireskSolution.OpenComplexType"
+            },
+            "log_level":{
+                "$Type":"WireskSolution.LogLevel"
+            },
+            "index_field_1":{
+                "$Type":"Edm.String",
+                "$Nullable": true
+            },
+            "index_field_2":{
+                "$Type":"Edm.String",
+                "$Nullable": true
+            },
+            "index_field_3":{
+                "$Type":"Edm.String",
+                "$Nullable": true
+            },
+            "steps": {
+                "$Type":"WireskSolution.Step",
+                "$Collection": true,
+                "$Nullable": true
+            },
+            "transitions": {
+                "$Type":"WireskSolution.Transition",
+                "$Collection": true,
+                "$Nullable": true
+            },
+            "alerts":{
+                "$Type":"WireskSolution.Alert",
+                "$Collection": true,
+                "$Nullable": true
+            },
+            "bot_events": {
+                "$Type":"WireskSolution.BotEvent",
+                "$Collection": true,
+                "$Nullable": true
+            },
+            "resource_triggers": {
+                "$Type":"WireskSolution.ResourceTrigger",
+                "$Collection": true,
+                "$Nullable": true
+            },
+            "schedulers": {
+                "$Type":"WireskSolution.Scheduler",
+                "$Collection": true,
+                "$Nullable": true
+            },
+            "event_triggers": {
+                "$Type":"WireskSolution.EventTrigger",
+                "$Collection": true,
+                "$Nullable": true
+            },
+            "webhook_triggers": {
+                "$Type":"WireskSolution.WebhookTrigger",
+                "$Collection": true,
+                "$Nullable": true
+            }
+        },
+        "LogLevel": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "NoLog": 0,
+            "ErrorOnlyLog": 1,
+            "FullLog": 2
+           
+        },
+        "Step": {
+            "$Kind": "ComplexType",
+            "tag": {
+                "$Nullable": true
+
+            },
+            "name": {
+                "$Nullable": true
+
+            },
+            "entity": {
+                "$Nullable": true
+
+            },
+            "listenerKey": {
+                "$Nullable": false
+
+            },
+            "step_method": {
+                "$Nullable": false
+
+            },
+            "x_coordinate": {
+                "$Type":"Edm.Double",
+                "$Nullable": false
+
+            },
+            "y_coordinate": {
+                "$Type":"Edm.Double",
+                "$Nullable": false
+
+            },
+            "retry_count": {
+                "$Type":"Edm.Byte",
+                "$Nullable": false
+
+            },
+            "step_number": {
+                "$Type":"Edm.Int32",
+                "$Nullable": false
+
+            },
+            "sample_response": {
+                "$Type":"WireskSolution.OpenComplexType"
+            },
+            "step_parameters": {
+                "$Type":"WireskSolution.StepParameter",
+                "$Collection": true,
+                "$Nullable": true
+            },
+            "matching_parameters": {
+                "$Type":"WireskSolution.MatchingParameter",
+                "$Collection": true,
+                "$Nullable": true
+            }
+        },
+        "Transition": {
+            "$Kind": "ComplexType",
+            "source_step_number": {
+                "$Nullable": true
+
+            },
+            "target_step_number": {
+                "$Nullable": true
+
+            },
+            "label": {
+                "$Nullable": true
+
+            },
+            "internal_id": {
+                "$Type":"Edm.Int32",
+                "$Nullable": false
+
+            }
+        },
+        "Alert": {
+            "$Kind": "ComplexType",
+            "channelKey": {
+                "$Nullable": false
+
+            },
+            "type": {
+                "$Type":"WireskSolution.AlertType"
+
+            },
+            "parameters": {
+                "$Type":"WireskSolution.OpenComplexType"
+
+            },
+            "consecutive_errors": {
+                "$Type":"Edm.Int32",
+                "$Nullable": true
+
+            },
+            "threshold": {
+                "$Type":"Edm.Int32",
+                "$Nullable": true
+
+            },
+            "repeat_every": {
+                "$Type":"Edm.Int32",
+                "$Nullable": true
+
+            },
+            "repeat_for": {
+                "$Type":"Edm.Int32",
+                "$Nullable": true
+
+            }
+        },
+        "BotEvent": {
+            "$Kind": "ComplexType",
+            "bot": {
+                "$Nullable": false
+
+            },
+            "name": {
+                "$Nullable": false
+
+            },
+            "event_key": {
+                "$Nullable": false
+
+            },
+            "type": {
+                "$Type":"WireskSolution.BotEventType"
+
+            }
+        },
+        "ResourceTrigger": {
+            "$Kind": "ComplexType",
+            "resource": {
+                "$Nullable": false
+
+            },
+            "resource_link": {
+                "$Nullable": true
+
+            },
+            "event": {
+                "$Type":"WireskSolution.ResourceEvent"
+
+            },
+            "type": {
+                "$Type":"WireskSolution.ResourceEventType"
+
+            }
+        },
+        "Scheduler": {
+            "$Kind": "ComplexType",
+            "dataSourceKey": {
+                "$Nullable": false
+
+            },
+            "tag": {
+                "$Nullable": false
+
+            },
+            "name": {
+                "$Nullable": false
+
+            },
+            "recurrence_rule": {
+                "$Nullable": false
+            },
+            "parameters": {
+                "$Type":"WireskSolution.OpenComplexType"
+
+            },
+            "batch_level_parameters": {
+                "$Type":"WireskSolution.OpenComplexType"
+
+            }
+        },
+        "EventTrigger": {
+            "$Kind": "ComplexType",
+            "event": {
+                "$Nullable": false
+            }
+        },
+        "WebhookTrigger": {
+            "$Kind": "ComplexType",
+            "apiKey": {
+                "$Nullable": false
+            },
+            "key": {
+                "$Nullable": false
+            },
+            "description": {
+                "$Nullable": true
+            },
+            "parameters": {
+                "$Type":"WireskSolution.OpenComplexType"
+
+            },
+            "method": {
+                "$Nullable": true
+            },
+            "filter": {
+                "$Type":"WireskSolution.OpenComplexType"
+
+            }
+        },
+        "ResourceEvent": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "Accessed": 1,
+            "Success": 2,
+            "Failure":3,
+            "NewFile":4,
+            "FileUpdated":5,
+            "FileDeleted":6
+           
+        },
+        "ResourceEventType": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "Flow": 1,
+            "Alert": 2           
+        },
+        "BotEventType": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "Command": 1,
+            "Event": 2
+           
+        },
+        "AlertType": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "Error": 0,
+            "ConsecutiveErrors": 1,
+            "NoMessageInDuration": 2
+           
+        },
+        "StepParameter": {
+            "$Kind": "ComplexType",
+            "output_field": {
+                "$Nullable": false
+
+            },
+            "input_field": {
+                "$Nullable": true
+
+            },
+            "lookup_entity": {
+                "$Nullable": true
+
+            },
+            "type": {
+                "$Nullable": true
+
+            },
+            "calc_type": {
+                "$Type": "WireskSolution.CalcType",
+                "$Nullable": false
+
+            },
+            "default": {
+                "$Nullable": true
+
+            },
+            "order": {
+                "$Nullable": true,
+                "$Type": "Edm.Int32"
+
+            },
+            "unresolved_behavior": {
+                "$Type": "WireskSolution.UnresolvedBehavior",
+                "$Nullable": false
+
+            },
+            "step_parameters": {
+                "$Type": "WireskSolution.StepParameter",
+                "$Collection": true,
+                "$Nullable": true
+
+            },
+            "option_set_mappings": {
+                "$Type": "WireskSolution.OptionSetMapping",
+                "$Collection": true,
+                "$Nullable": true
+
+            }
+        },
+        "OptionSetMapping": {
+            "$Kind": "ComplexType",
+            "input_value": {
+                "$Nullable": true
+
+            },
+            "output_value": {
+                "$Nullable": true
+
+            }
+        },
+        "MatchingParameter": {
+            "$Kind": "ComplexType",
+            "output_field": {
+                "$Nullable": false
+
+            },
+            "operator": {
+                "$Nullable": true
+
+            },
+            "input_field": {
+                "$Nullable": true
+
+            },
+            "lookup_entity": {
+                "$Nullable": true
+
+            },
+            "type": {
+                "$Nullable": true
+
+            },
+            "calc_type": {
+                "$Type": "WireskSolution.CalcType",
+                "$Nullable": false
+
+            },
+            "default": {
+                "$Nullable": true
+
+            },
+            "unresolved_behavior": {
+                "$Type": "WireskSolution.UnresolvedBehavior",
+                "$Nullable": false
+
+            },
+            "matching_parameters": {
+                "$Type": "WireskSolution.MatchingParameter",
+                "$Collection": true,
+                "$Nullable": true
+
+            }
+        },
+        "CalcType": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "Default": 0,
+            "StringInterpolation": 1,
+            "Formula": 2
+           
+        },
+        "UnresolvedBehavior": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "Default": 0,
+            "ThrowAllowEmpty": 1,
+            "ThrowDisallowEmpty": 2
+           
+        },
+        "OperationType": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "Create": 0,
+            "Read": 1,
+            "ReadMultiple": 2,
+            "ReadAll": 3,
+            "Crossjoin": 4,
+            "Update": 5,
+            "Upsert": 6,
+            "Replace": 7,
+            "Delete": 8,
+            "MultiUpdate": 9,
+            "MultiDelete": 10,
+            "MultiActionCall": 11,
+            "MultiFunctionCall": 12,
+            "Associate": 13,
+            "Dissociate": 14,
+            "FunctionCall": 15,
+            "ActionCall": 16,
+            "Batch": 17,
+            "Metadata": 18,
+            "EntityReferenceResolution": 19
+        },
+        "Callback": {
+            "$Kind": "ComplexType",
+            "namespace": {
+                "$Type": "Edm.String"
+            },
+            "function": {
+                "$Type": "Edm.String"
+            }
+        },
+        "Config": {
+            "$Kind": "ComplexType",
+            "$OpenType": true
+        },
+        "Plugin": {
+            "$Kind": "ComplexType",
+            "$BaseType": "WireskSolution.Callback",
+            "@Core.Description": "An object describing a callback that should be executed at a certain stage of the treatment of the request.",
+            "@Core.LongDescription": "An object describing a callback that should be executed at a certain stage of the treatment of the request. This allows applying custom logic to this or that request, such as applying permission restrictions or computing fields.",
+            "config": {
+                "$Type": "WireskSolution.Config"
+            },
+            "filteringAttributes":{
+                "$Type": "Edm.PropertyPath",
+                "$Collection": true
+            }
+        },
+        "PluginStage": {
+            "$Kind": "ComplexType",
+            "plugins": {
+                "$Type": "WireskSolution.Plugin",
+                "$Collection": true
+            },
+            "image": {
+                "$Type": "WireskSolution.Image"
+            },
+            "@Core.Description": "A list of plugins that apply to this entity. When performing an operation, plugins are applied at the stage of their executionType, in the order they appear here."
+        },
+        "Image": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "An image is an instance of the record being manipulated by a request, at a certain stage of the request. It is passed to plugins executing at the same stage.",
+            "imageAttributes": {
+                "$Type": "Edm.PropertyPath",
+                "$Collection": true,
+                "$Nullable": true,
+                "@Core.Description": "A list of properties to pass to plugins. Null means all attributes are passed, empty array means an empty record is passed. Its id is still passed."
+            }
+        },
+        "PluginOperation": {
+            "$Kind": "ComplexType",
+            "PreValidation": {
+                "$Type": "WireskSolution.PluginStage",
+                "@Core.Description": "The plugins executed on the raw body of the request before it is validated against the schema."
+            },
+            "PreOperation": {
+                "$Type": "WireskSolution.PluginStage",
+                "@Core.Description": "The plugins executed on the request once it is parsed and validated, but before it or any subrequest is executed."
+            },
+            "PostOperationSync": {
+                "$Type": "WireskSolution.PluginStage",
+                "@Core.Description": "The plugin is executed on the request immediately after it is executed, but before related multi subrequest is executed."
+            },
+            "PostSubRequestSync": {
+                "$Type": "WireskSolution.PluginStage",
+                "@Core.Description": "The plugins executed on the request immediately after it and its related multi subrequests are executed."
+            },
+            "PostOperationAsync": {
+                "$Type": "WireskSolution.PluginStage",
+                "@Core.Description": "The plugins executed on the request asynchonously after it the request is executed. If no AsyncPluginHandler is defined, it is executed just after PostSubRequestSync plugins."
+            },
+            "@Core.Description": "A list of plugins that apply to this entity. When performing an operation, plugins are applied at the stage of their executionType, in the order they appear here."
+        },
+        "Create": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.PluginOperation",
+            "@Core.Description": "Plugins that should be applied when this record type is created.",
+            "$AppliesTo": [
+                "EntityType"
+            ]
+        },
+        "Read": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.PluginOperation",
+            "@Core.Description": "Plugins that should be applied when this record type is read. This includes using the record in the path of the request, as well as ReadMultiple, and ReadAll and Crossjoin that involve this record type.",
+            "$AppliesTo": [
+                "EntityType"
+            ]
+        },
+        "Update": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.PluginOperation",
+            "@Core.Description": "Plugins that should be applied when this record type is updated. This includes MultiUpdate, Upsert and Replace operations.",
+            "$AppliesTo": [
+                "EntityType"
+            ]
+        },
+        "Delete": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.PluginOperation",
+            "@Core.Description": "Plugins that should be applied when this record type is deleted",
+            "$AppliesTo": [
+                "EntityType"
+            ]
+        },
+        "Associate": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.PluginOperation",
+            "@Core.Description": "Plugins that should be applied when this record type is associated to another record",
+            "$AppliesTo": [
+                "NavigationProperty"
+            ]
+        },
+        "Dissociate": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.PluginOperation",
+            "@Core.Description": "Plugins that should be applied when this record type is dissociated from another record",
+            "$AppliesTo": [
+                "NavigationProperty"
+            ]
+        },
+        "DefaultCreate": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.PluginOperation",
+            "@Core.Description": "Plugins that should be applied when any record type is created. Can be omitted from a specific entity by using",
+            "$AppliesTo": [
+                "EntityType"
+            ]
+        },
+        "PreventDefaultCreate": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": false,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Core.Description": "Default create plugins do not apply to this record's create operations"
+        },
+        "DefaultRead": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.PluginOperation",
+            "@Core.Description": "Plugins that should be applied when any record type is Readd. Can be omitted from a specific entity by using PreventDefaultRead tag",
+            "$AppliesTo": [
+                "EntityType"
+            ]
+        },
+        "PreventDefaultRead": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": false,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Core.Description": "Default Read plugins do not apply to this record's Read operations"
+        },
+        "DefaultUpdate": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.PluginOperation",
+            "@Core.Description": "Plugins that should be applied when any record type is Updated. Can be omitted from a specific entity by using PreventDefaultUpdate tag",
+            "$AppliesTo": [
+                "EntityType"
+            ]
+        },
+        "PreventDefaultUpdate": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": false,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Core.Description": "Default Update plugins do not apply to this record's Update operations"
+        },
+        "DefaultDelete": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.PluginOperation",
+            "@Core.Description": "Plugins that should be applied when any record type is Deleted. Can be omitted from a specific entity by using PreventDefaultDelete tag",
+            "$AppliesTo": [
+                "EntityType"
+            ]
+        },
+        "PreventDefaultDelete": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": false,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Core.Description": "Default Delete plugins do not apply to this record's Delete operations"
+        },
+        "DefaultAssociate": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.PluginOperation",
+            "@Core.Description": "Plugins that should be applied when any record type is Associated. Can be omitted from a specific entity by using PreventDefaultAssociate tag",
+            "$AppliesTo": [
+                "NavigationProperty"
+            ]
+        },
+        "PreventDefaultAssociate": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": false,
+            "$AppliesTo": [
+                "NavigationProperty"
+            ],
+            "@Core.Description": "Default Associate plugins do not apply to this record's Associate operations"
+        },
+        "DefaultDissociate": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.PluginOperation",
+            "@Core.Description": "Plugins that should be applied when any record type is Dissociated. Can be omitted from a specific entity by using PreventDefaultDissociate tag",
+            "$AppliesTo": [
+                "NavigationProperty"
+            ]
+        },
+        "PreventDefaultDissociate": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": false,
+            "$AppliesTo": [
+                "NavigationProperty"
+            ],
+            "@Core.Description": "Default Dissociate plugins do not apply to this record's Dissociate operations"
+        },
+        "PluginFlow": {
+            "$Kind": "Term",
+            "$Type": "WireskSolution.Flow",
+            "$DefaultValue": false,
+            "@Core.Description": "Default Dissociate plugins do not apply to this record's Dissociate operations"
+        },
+        "ExternalSource": {
+            "$Kind": "ComplexType",
+            "tag": {
+                "$Nullable": false
+            },
+            "name": {
+                "$Nullable": false
+            },
+            "entities": {
+                "$Type": "WireskSolution.ExternalSourceEntity",
+                "$Collection":true,
+                "$Nullable": false
+            }            
+        },
+        "ExternalSourceEntity": {
+            "$Kind": "ComplexType",
+            "entity": {
+                "$Nullable": false
+            },
+            "filter": {
+                "$Nullable": false
+            },
+            "local_unknown_record_behavior": {
+                "$Nullable": false,
+                "$Type": "WireskSolution.LocalUnknownRecordBehavior"
+
+            },
+            "local_create_behavior": {
+                "$Nullable": false,
+                "$Type": "WireskSolution.CreateBehavior"
+
+            },
+            "local_update_behavior": {
+                "$Nullable": false,
+                "$Type": "WireskSolution.UpdateBehavior"
+
+            },
+            "local_delete_behavior": {
+                "$Nullable": false,
+                "$Type": "WireskSolution.DeleteBehavior"
+
+            },
+            "local_event_capture": {
+                "$Nullable": false,
+                "$Type": "WireskSolution.EventCapture"
+
+            },
+            "external_unknown_record_behavior": {
+                "$Nullable": false,
+                "$Type": "WireskSolution.ExternalUnknownRecordBehavior"
+
+            },
+            "external_create_behavior": {
+                "$Nullable": false,
+                "$Type": "WireskSolution.CreateBehavior"
+
+            },
+            "external_update_behavior": {
+                "$Nullable": false,
+                "$Type": "WireskSolution.UpdateBehavior"
+
+            },
+            "external_deletete_behavior": {
+                "$Nullable": false,
+                "$Type": "WireskSolution.DeleteBehavior"
+
+            },
+            "external_event_capture": {
+                "$Nullable": false,
+                "$Type": "WireskSolution.EventCapture"
+
+            },
+            "properties": {
+                "$Type": "WireskSolution.ExternalSourceProperty",
+                "$Collection":true,
+                "$Nullable": false
+            }            
+        },
+        "ExternalSourceProperty": {
+            "$Kind": "ComplexType",
+            "property": {
+                "$Nullable": false
+            },
+            "external_property": {
+                "$Nullable": false
+            },
+            "properties": {
+                "$Type": "WireskSolution.ExternalSourcePropertyValue",
+                "$Collection":true,
+                "$Nullable": true
+            }            
+        },
+        "ExternalSourcePropertyValue": {
+            "$Kind": "ComplexType",
+            "value": {
+                "$Nullable": false
+            },
+            "external_value": {
+                "$Nullable": false
+            },
+            "properties": {
+                "$Type": "WireskSolution.ExternalSourcePropertyValue",
+                "$Collection":true,
+                "$Nullable": true
+            }            
+        },
+        "LocalUnknownRecordBehavior": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "Recreate": 0,
+            "LocalDelete": 1,
+            "LocalClear": 2,
+            "LocalUnlink": 3
+        },
+        "ExternalUnknownRecordBehavior": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "LocalCreate": 0,
+            "Ignore": 1
+        },
+        "CreateBehavior": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "Create": 0,
+            "Ignore": 1
+        },
+        "UpdateBehavior": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "Update": 0,
+            "Ignore": 1
+        },
+        "DeleteBehavior": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "Delete": 0,
+            "Ignore": 1
+        },
+        "EventCapture": {
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "$IsFlags": true,
+            "None": 0,
+            "Create": 1,
+            "Update": 2,
+            "Delete": 4
+        }
+        
+    }
+}
